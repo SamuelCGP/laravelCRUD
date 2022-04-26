@@ -20,5 +20,6 @@
         <input type="text" name="estoque">
         <br><br>
         <button>Cadastrar</button>
+    </form>
 </body>
 </html>
