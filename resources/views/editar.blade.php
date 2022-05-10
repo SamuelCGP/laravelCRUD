@@ -19,7 +19,7 @@
             <label for="lblNome">Quantidade:</label>
             <input type="text" name="estoque" value="{{ $produto->estoque }}">
             <br><br>
-            <button>Cadastrar</button>
+            <button>Confirmar</button>
         </form>
     </body>
 </html>

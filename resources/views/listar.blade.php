@@ -7,15 +7,32 @@
     </head>
     <body>
         <h1>Produtos</h1>
-
-        <label for="lblNome">Nome:</label>
-        <input type="text" name="nome" value="{{ $produto->nome }}">
-        <br><br>
-        <label for="lblNome">Valor:</label>
-        <input type="text" name="valor" value="{{ $produto->valor }}">
-        <br><br>
-        <label for="lblNome">Quantidade:</label>
-        <input type="text" name="estoque" value="{{ $produto->estoque }}">
-        <br><br>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Estoque</th>
+                <th>Ação</th>
+            </tr>
+            <?php
+                $id = $produtos[0]["id"];
+                $nome = $produtos[0]["nome"];
+                $valor = $produtos[0]["valor"];
+                $estoque = $produtos[0]["estoque"];
+                echo "
+                <tr>
+                    <td>$id</td>
+                    <td>$nome</td>
+                    <td>$valor</td>
+                    <td>$estoque</td>
+                    <td>
+                        <button class='sideToSide' onclick='location.href=`/editar-produto/$id`'>Listar</button>
+                        <button class='sideToSide' onclick='location.href=`/excluir-produto/$id`'>Excluir</button>
+                    </td>
+                </tr>";
+            ?>
+            
+        </table>
     </body>
 </html>

@@ -33,32 +33,19 @@ Route::post('/cadastrar-produto', function(Request $request){
         'estoque' => $request->estoque
     ]);
 
-    echo "Produto criado com sucesso!";
+    echo "<script>alert('Produto criado com sucesso!')</script>";
+    return view('welcome');
 });
 
-Route::get('/listar-produto/{id}', function($id){
+Route::get('/listar-produto', function(){
     //dd(Produto::find($id)); //debug and DIE MONSTER
-    $produto = Produto::find($id);
-    return view('listar', ['produto' => $produto]);
-});
-
-Route::post('/listar-produto', function(Request $request){
-    //dd($request->all());
-    $produto = Produto::find($request->id);
-    
-    return view('listar', ['produto' => $produto]);
+    $produtos = Produto::all();
+    return view('listar', ['produtos' => $produtos]);
 });
 
 Route::get('/editar-produto/{id}', function($id){
     //dd(Produto::find($id)); //debug and DIE MONSTER
     $produto = Produto::find($id);
-    return view('editar', ['produto' => $produto]);
-});
-
-Route::post('/editar-produto', function(Request $request){
-    //dd($request->all());
-    $produto = Produto::find($request->id);
-    
     return view('editar', ['produto' => $produto]);
 });
 
@@ -72,7 +59,8 @@ Route::post('/editar-produto/{id}', function(Request $request, $id){
         'estoque' => $request->estoque
     ]);
 
-    echo "Produto editado com sucesso!";
+    echo "<script>alert('Produto editado com sucesso!')</script>";
+    return view('welcome');
 });
 
 Route::get('/excluir-produto/{id}', function($id){
@@ -80,14 +68,6 @@ Route::get('/excluir-produto/{id}', function($id){
     $produto = Produto::find($id);
     $produto->delete();
     
-    echo "Produto excluido com sucesso!";
-});
-
-Route::post('/excluir-produto', function(Request $request){
-    //dd($request->all());
-    $produto = Produto::find($request->id);
-    
-    $produto->delete();
-    
-    echo "Produto excluido com sucesso!";
+    echo "<script>alert('Produto excluido com sucesso!')</script>";
+    return view('welcome');
 });
