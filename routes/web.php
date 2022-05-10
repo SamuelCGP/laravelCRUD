@@ -42,9 +42,23 @@ Route::get('/listar-produto/{id}', function($id){
     return view('listar', ['produto' => $produto]);
 });
 
+Route::post('/listar-produto', function(Request $request){
+    //dd($request->all());
+    $produto = Produto::find($request->id);
+    
+    return view('listar', ['produto' => $produto]);
+});
+
 Route::get('/editar-produto/{id}', function($id){
     //dd(Produto::find($id)); //debug and DIE MONSTER
     $produto = Produto::find($id);
+    return view('editar', ['produto' => $produto]);
+});
+
+Route::post('/editar-produto', function(Request $request){
+    //dd($request->all());
+    $produto = Produto::find($request->id);
+    
     return view('editar', ['produto' => $produto]);
 });
 
@@ -64,6 +78,15 @@ Route::post('/editar-produto/{id}', function(Request $request, $id){
 Route::get('/excluir-produto/{id}', function($id){
     //dd($request->all());
     $produto = Produto::find($id);
+    $produto->delete();
+    
+    echo "Produto excluido com sucesso!";
+});
+
+Route::post('/excluir-produto', function(Request $request){
+    //dd($request->all());
+    $produto = Produto::find($request->id);
+    
     $produto->delete();
     
     echo "Produto excluido com sucesso!";

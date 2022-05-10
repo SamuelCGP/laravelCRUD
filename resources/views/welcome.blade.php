@@ -59,7 +59,7 @@
         <form action="/editar-produto" method="POST">
             @csrf
             <button>Editar</button>
-            <input class="sideToSide" type="number" placeholder="0">
+            <input class="sideToSide" type="number" placeholder="0" name="id">
         </form>
         <form action="/listar-produto" method="POST">
             @csrf
@@ -69,7 +69,7 @@
         <form action="/excluir-produto" method="POST">
             @csrf
             <button>Excluir</button>
-            <input class="sideToSide" type="number" placeholder="0">
+            <input class="sideToSide" type="number" placeholder="0" name="id">
         </form>
     </body>
 </html>

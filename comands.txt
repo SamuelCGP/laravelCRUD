@@ -1,2 +1,4 @@
 composer install
 php artisan key:generate
+.env
+biblioteca_laravel
