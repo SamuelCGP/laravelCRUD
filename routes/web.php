@@ -34,7 +34,8 @@ Route::post('/cadastrar-produto', function(Request $request){
     ]);
 
     echo "<script>alert('Produto criado com sucesso!')</script>";
-    return view('welcome');
+    //return view('welcome');
+    return redirect('/listar-produto');
 });
 
 Route::get('/listar-produto', function(){
@@ -60,7 +61,7 @@ Route::post('/editar-produto/{id}', function(Request $request, $id){
     ]);
 
     echo "<script>alert('Produto editado com sucesso!')</script>";
-    return view('welcome');
+    return redirect('/listar-produto');
 });
 
 Route::get('/excluir-produto/{id}', function($id){
@@ -68,6 +69,5 @@ Route::get('/excluir-produto/{id}', function($id){
     $produto = Produto::find($id);
     $produto->delete();
     
-    echo "<script>alert('Produto excluido com sucesso!')</script>";
-    return view('welcome');
+    return redirect('/listar-produto');
 });
